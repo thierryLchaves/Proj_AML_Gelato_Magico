@@ -3,7 +3,6 @@
 <div>
   <div style="display: flex; align-items: center;">
     <h1 style="margin: 0; font-size: 50px;">Gelato Mágico.</h1>
-        <img src="https://i.postimg.cc/MTkHtvXw/864001c0-f794-491b-9a8d-ec1db8c051e1.png" width="70px" style="margin-right: 15px;" />
   </div>
   <p style="margin: 6px 0 0 0; font-size: 25px;">
     Treinando Seu Primeiro Modelo de Machine Learning para Prever Vendas
