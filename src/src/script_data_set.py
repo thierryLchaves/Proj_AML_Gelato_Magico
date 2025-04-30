@@ -7,7 +7,7 @@ from datetime import datetime
 def valida_data():
     while True:
         try:
-            data_range  = input("Digite o período de vendas a ser sorteado no formato de AAA/MM/DD: ")            
+            data_range  = input("Digite o período de vendas a ser sorteado no formato de AAAA/MM/DD: ")            
             if data_range:
                 data = datetime.strptime(data_range,"%Y-%m-%d")
                 return data
@@ -67,11 +67,10 @@ vendas = np.random.uniform(0,5, size=qt_rows).astype(int)
 df = pd.DataFrame({
     "Data": datas.strftime('%Y-%m-%d'),
     "Vendas ": vendas,
-    "Temperatura": temperaturas
     
 })
 
 # Salvando em CSV
-caminho_csv = f'src/database/{nm_arquivo}.csv'
+caminho_csv = f'dados/{nm_arquivo}.csv'
 df.to_csv(caminho_csv, index=False)
 caminho_csv

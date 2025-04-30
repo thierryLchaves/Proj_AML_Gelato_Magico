@@ -45,9 +45,42 @@ Para a criação do Cluster de computação foram utilizados os seguintes recurs
 
  Ambos os recursos foram criados com o objetivo, de realizar rodar os diferentes modelos e trabalhos que foram criados.  
 
- ## Scitps e modelos com MLflow
+ ## Scitps e Pipelines
  Após o provisionamento de máquinas virtuais no ambiente Azure, foi realizado a criação de modelos utilizando o MLflow, através de notebooks python, para tal tarefa foi realizado a excução do scritp [Cria base de dados](src/script_data_set.py), para geração do dataset a ser utilizado, bem como foi realizado o a criação de um diretório dentro do ambiente bem upload da pasta contendo o arquivo e notebook python para gerar o Job junto ao MLflow, o arquivo utilizado foi [Script MLflow](src/sorvetes_mlflow.ipynb),ambos os arquivos foram importados para as pastas criadas e os assim como os arquivos. 
- ![Arquivos notebooks AML](imgs/NotebookAML.png)
+ ![Arquivos notebooks AML](imgs/NotebookAML_1.png),
+ ![Arquivos notebooks AML](imgs/NotebookAML_2.png)
+ ![Arquivos notebooks AML](imgs/NotebookAML_3.png) para o desenvolvimento do notebook em questão foi tomado como base o arquivo 
+ [Labs AML6](https://github.com/MicrosoftLearning/mslearn-azure-ml/blob/main/Labs/06/Classification%20with%20Automated%20Machine%20Learning.ipynb), após a condiguração do pipline, e do scritp corretamente, como pode ser visualizado foi realizado a inicialização do job respectivos do pip line em questão, gerando 2 jobs correlatos do mesmo experimento. 
+  ![Jobs Pipeline](imgs/jobs_runing.png), ao final do treinamento houveram falhas de execução 
+
+ ## Import de dado
+ Após a modelagem e criação, de pipe lines foi realizado a criação de um modelo com base em dados diretamente do Azure Machine Learning, importando o data set para criação futura de ML automatizado, bem como via Designer
+ ![import dados](imgs/import_dados.png)
+ ![escolha dados](imgs/escolha_de_dados.png)
+ ![tipo de dados](imgs/tipo_dado.png)
+ ![selecao de dados](imgs/selecao_dado.png)
+ ![configurando os dados](imgs/config_database.png)
+ ![defindo esquema de dados](imgs/defindo_esquema_dados.png)
+ ![revisando criação dos dados](imgs/criando_dados_1.png)
+ ![final import dados](imgs/data_set.png)
+ 
+ ## Criando trabalho com Auto ML
+ Com os dados devidamente importados no ambiente, foi dado inicio a configuração do Auto ML,o experimento em questão foi nomeado de 
+ **"venda_sorves_automl"**:  
+ ![configuracao experimento](imgs/venda_sorves_automl.png)  
+
+ Para o experimento em questão foi selecionado o modelo de regressão, visto que desejamos ter uma previsão com base no histórico de tempetura com relação as vendas do sorvete.
+ ![configuracao experimento](imgs/tipo_tarefa_automl.png)  
+ Para o experimento em questão foi escolhido apenas o algoritimo de XGBoostregressor, ainda foi configurado também que o modelo de previsão será nas vendas.
+  ![configução adicional](imgs/config_params_automl.png) 
+ Também foram configurados limites de tempo e utilização de nós.
+   ![configução de limites automl](imgs/limites_automl.png) 
+No final foi selecionado o tipo de computação a ser utilizada, que no caso foi a instância de cluster previamente provisionada e configurada.  
+![configução de computacao](imgs/computacao_automl.png) 
+Ao final da configuração, foi dado inicio a execução do trabalho criado pelo AutoML
+![Trabalho AutoML running](imgs/running_automl.png)
+
+
 
 
 <table style="text-align: center; width: 100%;">
