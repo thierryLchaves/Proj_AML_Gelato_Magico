@@ -61,16 +61,16 @@ datas = pd.date_range(start=data_inc, end=data_fim, periods=qt_rows)
 temperaturas = np.round(np.random.uniform(temp_inic, temp_fim, size=qt_rows), 0)
 
 # Gerando vendas baseadas na temperatura (mais quente = mais vendas)
-vendas = np.random.uniform(0,5, size=qt_rows).astype(int)
+vendas = (temperaturas * np.random.uniform(0,5, size=qt_rows).astype(int))
 
 # Criando o DataFrame
 df = pd.DataFrame({
     "Data": datas.strftime('%Y-%m-%d'),
-    "Vendas ": vendas,
-    
+    "Vendas": vendas,
+    "Temperatura": temperaturas
 })
 
 # Salvando em CSV
-caminho_csv = f'dados/{nm_arquivo}.csv'
+caminho_csv = f'src/dados/{nm_arquivo}.csv'
 df.to_csv(caminho_csv, index=False)
 caminho_csv
